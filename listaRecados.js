@@ -1,3 +1,4 @@
+let indice = -1
 const usuarioLogado = buscarDadosLocalStorage('usuarioLogado')
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -45,16 +46,8 @@ formulario.addEventListener('submit', (evento) => {
         return
     }
 
-    // const aviso = document.getElementById('aviso')
-
-    // if (listaRecados.length == 15) {
-    //     aviso.innerHTML = 'Você atingiu o número máximo de recados, exclua algum para continuar adicionando!'
-    //     setTimeout(() => { aviso.innerHTML = '' }, 2500)
-
-    //     return
-    // }
-
     const novoRecado = {
+        id: gerarId(),
         descricao: descricao.value,
         detalhamento: detalhamento.value
     }
@@ -68,66 +61,79 @@ formulario.addEventListener('submit', (evento) => {
     mostrarRecados()
 })
 
-///funcao exluir e atualizar recado
+function gerarId(){
+    return new Date().getTime()
+}
 
 function mostrarRecados() {
     tbody.innerHTML = ''
 
     listaRecados.forEach((valor, index) => {
         tbody.innerHTML += 
-    `<tr id='${index}'>
-    <td>${index + 1}</td>
-    <td>${valor.descricao}</td>
-    <td>${valor.detalhamento}</td>
-    <td class="text-center">
-        <button class="btn bg-none border-0 aria-label="Editar" onclick="editar(${index})" >
-            <i class="bi bi-pencil-square text-primary fs-5"></i>
-        </button>
-        <button class="btn bg-none border-0 aria-label="Apagar" onclick="apagar(${index})" >
-            <i class="bi bi-trash3 text-danger fs-5"></i>
-        </button>
-    </td>
-</tr>`
+        `<tr id='${valor.id}'>
+            <td>${index + 1}</td>
+            <td>${valor.descricao}</td>
+            <td>${valor.detalhamento}</td>
+            <td class="text-center">
+                <button class="btn bg-none border-0 aria-label="Editar" onclick="editar(${index})" >
+                    <i class="bi bi-pencil-square text-primary fs-5"></i>
+                </button>
+                <button class="btn bg-none border-0 aria-label="Apagar" onclick="apagar(${index}, ${valor.id})" >
+                    <i class="bi bi-trash3 text-danger fs-5"></i>
+                </button>
+            </td>
+        </tr>`
     })
 }
 
-function editar(indice) {
-    const modalEditar = new bootstrap.Modal('#modal-atualizar')
 
-    const formulario = document.getElementById('form-atualizar')
+const modalEditar = new bootstrap.Modal('#modal-atualizar')
 
-    const feedback = document.getElementById('feedback')
+const formularioAtualizar = document.getElementById('form-atualizar')
+
+const feedback = document.getElementById('feedback')
+
+
+
+function editar(indiceRecado) {
 
     modalEditar.show()
+    
+    document.getElementById('atualizar-descricao').value = listaRecados[indiceRecado].descricao
+    document.getElementById('atualizar-detalhamento').value = listaRecados[indiceRecado].detalhamento
 
-    formulario.addEventListener('submit', (evento) => {
-        evento.preventDefault()
+    indice = indiceRecado
 
-        const descricaoAtualizada = document.getElementById('atualizar-descricao')
-
-        const detalhamentoatualizado = document.getElementById('atualizar-detalhamento')
-
-        if(!descricaoAtualizada.value || !detalhamentoatualizado.value){
-            mostrarAlerta(feedback, 'Preencha todos os campos!')
-            return
-        }
-
-        listaRecados[indice].descricao = descricaoAtualizada.value
-        listaRecados[indice].detalhamento = detalhamentoatualizado.value
-
-        modalEditar.hide()
-
-        salvarRecados()
-        mostrarRecados()
-
-        formulario.reset()
-    })
 }
 
-function apagar(indice) {
-    usuarioLogado.recados.splice(indice, 1)
+formularioAtualizar.addEventListener('submit', (evento) => {
+    evento.preventDefault()
 
-    const remover = document.getElementById(indice)
+    const descricaoAtualizada = document.getElementById('atualizar-descricao')
+
+    const detalhamentoatualizado = document.getElementById('atualizar-detalhamento')
+
+    if(!descricaoAtualizada.value || !detalhamentoatualizado.value){
+        mostrarAlerta(feedback, 'Preencha todos os campos!')
+        return
+    }
+
+    listaRecados[indice].descricao = descricaoAtualizada.value
+    listaRecados[indice].detalhamento = detalhamentoatualizado.value
+
+    salvarRecados()
+    mostrarRecados()
+
+    formulario.reset()
+    modalEditar.hide()
+})
+
+
+
+function apagar(indice, idRecado) {
+    listaRecados.splice(indice, 1)
+
+    const remover = document.getElementById(idRecado)
     remover.remove()
 
     salvarRecados()

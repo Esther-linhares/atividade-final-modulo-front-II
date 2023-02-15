@@ -18,7 +18,7 @@
     <header class="container-fluid">
         <div class="row h-100">
             <div class="col">
-                
+                <h1 class="text-light">Recados</h1>
             </div>
             <div class="col h-100 d-flex">
                 <button class="btn p-1 ms-auto mx-5 border-0" id="botao-sair"><i class="bi bi-box-arrow-left fs-3 text-light"></i>
@@ -26,30 +26,27 @@
             </div>
         </div>
     </header>
-    <main class="container-fluid d-flex justify-content-center">
-        <div class="row w-75 h-100">
-            <div class="col h-100 w-100">
-                <div class="container-fluid h-100 w-100">
-                    <div></div>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">ID</th>
-                                <th scope="col">Descrição</th>
-                                <th scope="col">Detalhamento</th>
-                                <th scope="col"></th>
-                            </tr>
-                        </thead>
-                        <tbody id="recados">
-                            
-                        </tbody>
-                    </table>
-                </div>
+    <main class="container">
+        <div class="row">
+            <div class="col-12 offset-md-1 col-md-10">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Descrição</th>
+                            <th scope="col">Detalhamento</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody id="recados">
+                        
+                    </tbody>
+                </table>
             </div>
         </div>
     </main>
 
-    <button class="btn btn-primary rounded-circle float-button float-end" data-bs-toggle="modal" data-bs-target="#modal-criar">
+    <button class="btn rounded-circle float-button float-end" data-bs-toggle="modal" data-bs-target="#modal-criar">
         <i class="bi bi-plus-lg"></i>
     </button>
 
@@ -57,7 +54,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title" id="titleModalCreate">Cadastrar Contato</h1>
+                    <h1 class="modal-title" id="titleModalCreate">Adicionar recado</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
                 </div>
                 <form id="form-recados" class="needs-validation" novalidate>
@@ -67,7 +64,7 @@
                             <input type="text" class="form-control" id="descricao" minlength="3" required placeholder="Descrição">
                         </div>
                         <div class="mb-2">
-                            <label for="telefone" class="form-label">Telefone: </label>
+                            <label for="telefone" class="form-label">Detalhamento: </label>
                             <input type="text" class="form-control" minlength="15" maxlength="15" id="detalhamento" required placeholder="Detalhamento">
                         </div>
                         <div id="feedback" role="alert" class="m-0 div-alert">
@@ -75,7 +72,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Salvar</button>
+                        <button type="submit" class="btn submit">Salvar</button>
                     </div>
                 </form>
             </div>
@@ -105,7 +102,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Salvar</button>
+                        <button type="submit" class="btn submit">Salvar</button>
                     </div>
                 </form>
             </div>

@@ -3,8 +3,8 @@ header{
     height: 10vh;
     background-color: deeppink;
 }
-main{
-    height: 90vh;
+table{
+    width: 80%;
 }
 .float-button {
     height: 50px;
@@ -12,6 +12,10 @@ main{
     position: fixed;
     right: 40px;
     bottom: 40px;
+    background-color: deeppink;
+}
+.float-button:hover{
+    background-color: rgb(223, 107, 169);
 }
 .div-alert{
     width: 100%;
@@ -19,4 +23,12 @@ main{
 }
 td{
     padding: 0px 8px !important;
+}
+.submit {
+    background-color: deeppink;
+    color: white;
+    width: 100%;
+}
+.submit:hover {
+    background-color: rgb(245, 141, 197);
 }
