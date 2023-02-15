@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/style.css"> 
+    <title>Login página de Recados</title>
+</head>
+
+<body>
+    <main class="container-fluid vh-100 d-flex align-items-center">
+        <div class="container h-75 d-flex justify-content-center">
+            <div class="row align-items-center w-100 div-img">
+                <div class="col-lg-6 d-flex justify-content-center justify-lg-content-end">
+                    <div class="card-login bg-light d-flex flex-column align-items-center justify-content-center rounded-5">
+                        <h1 class="text-center">Acessar</h1>
+                        <form class="needs-validation w-75 text-center" id="formulario-entrar" novalidate>
+                            <div class="form-group">
+                                <input type="text" class="form-control mt-4" id="nome-usuario" name="nome-usuario" placeholder="Nome de usuário" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control mt-4" id="senha-usuario" name="senha-usuario" placeholder="Senha" required>
+                            </div>
+                            <div id="feedback" role="alert" class="mt-2 mb-2 div-alert">
+                                <p class="text-light m-0">feedback</p>
+                            </div>
+                            <button type="submit" class="submit btn  mb-4">Logar</button>
+                        </form>
+                        <p class="mb-1">
+                            Não tem conta? 
+                        </p>
+                        <button type="button" class="btn btn-link m-0 p-0 color-pink" data-bs-toggle="modal" data-bs-target="#modal-cadastrar">Cadastre-se</button>
+                    </div>
+                </div>
+                <div class="col-lg-6 d-none d-lg-block">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-9">
+                                <img class="img-fluid img-login" src="./asssets/img/to-do.png" alt="To do list">
+                            </div>
+                            <div class="col-3">
+                                <img class="img-fluid img-check" src="./asssets/img/check.png" alt="check">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <!-- CADASTRAR USUARIO MODAL -->
+    <div class="modal fade" id="modal-cadastrar" tabindex="-1" aria-labelledby="titleModalCreate" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-3" id="titleModalCreate">Cadastrar Usuário</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+                </div>
+                <form id="formulario-cadastro" class="needs-validation" novalidate>
+                    <div class="modal-body p-2">
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="nome-novo-usuario" minlength="3" required placeholder="Nome de Usuário">
+                        </div>
+                        <div class="mb-3">
+                            <input type="password" class="form-control" minlength="15" maxlength="15" id="senha-novo-usuario" name="senha-novo-usuario" required placeholder="Senha">
+                        </div>
+                        <div class="mb-2">
+                            <input type="password" class="form-control" minlength="15" maxlength="15" id="conferir-senha-novo-usuario" name="conferir-senha-novo-usuario" placeholder="Confirmar senha" required>
+                        </div>
+                        <div id="feedback-modal" role="alert" class="mb-1 w-75 div-alert">
+                            <p class="text-light m-0">feedback</p>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn submit">Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div> 
+
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>

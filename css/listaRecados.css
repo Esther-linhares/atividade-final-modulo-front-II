@@ -1,0 +1,22 @@
+
+header{
+    height: 10vh;
+    background-color: deeppink;
+}
+main{
+    height: 90vh;
+}
+.float-button {
+    height: 50px;
+    width: 50px;
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+}
+.div-alert{
+    width: 100%;
+    padding: 4px;
+}
+td{
+    padding: 0px 8px !important;
+}
